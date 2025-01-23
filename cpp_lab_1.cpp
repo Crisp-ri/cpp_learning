@@ -66,6 +66,21 @@ void info_about_circle()
 	std::cout << "The circle length is " << 2 * pi * radius << std::endl;
 }
 
+void interest_calculation()
+{
+	int period = 0;
+	float sum = 0, rate = 0;
+
+	std::cout << "Enter the period: ";
+	std::cin >> period;
+	std::cout << "Enter the sum: ";
+	std::cin >> sum;
+	std::cout << "Enter the rate: ";
+	std::cin >> rate;
+
+	std::cout << "Interest: " << (period * sum * rate) / 100 << std::endl;
+}
+
 int main()
 {
 	print_hello_world();
@@ -79,6 +94,8 @@ int main()
 	area_of_a_parallelepiped();
 
 	info_about_circle();
+
+	interest_calculation();
 
 	return 0;
 }
