@@ -4,7 +4,7 @@
 
 int rand_range(int a, int b)
 {
-	return rand() % (b - a) + a;
+	return rand() % ((b + 1) - a) + a;
 }
 
 int rand_range()
@@ -103,16 +103,6 @@ int main()
 	
 	std::cout << binnary_search(arr, n, value) << std::endl;
 
-	std::cout << rand() << std::endl;
 	delete[] arr;
 	return 0;
 }
-
-
-/*
- * 1, 5, 2, 7, 2
- * 
- * 1, 2, 5, 2, 7
- *
- *
- * */
