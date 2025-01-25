@@ -2,6 +2,7 @@
 #include <ctime>
 #include <cstdlib>
 
+
 int rand_range(int a, int b)
 {
 	return rand() % ((b + 1) - a) + a;
@@ -71,12 +72,60 @@ void bubble_sort(int* arr, int lenght)
         }
 }
 
+struct vector
+{
+	int* data;
+	int size;
+	int capacity;
+	vector(int size_ = 0):data(0), size(size_), capacity(2 * size + 1)
+	{
+		std::cout << "Constructor" << std::endl;
+		data = new int[capacity];
+	};
+	~vector()
+	{
+		delete[] data;
+		std::cout << "Destructor" << std::endl;
+	}
+	int get_size()
+	{
+		return size;
+	};
+	const int& at(int index)
+	{
+		std::cout << "Size: " << size << "\t" << "Capacity: " << capacity << std::endl;
+		return data[index];
+	};
+	int& operator[](int index)
+        {
+                return data[index];
+        };
+	void push_back(int element)
+	{
+		if(size > capacity)
+		{
+			std::cout << "Resizing: Size: " << size << "\t Capacity: " << capacity << std::endl;
+			capacity *= 2;
+			int* temp = new int[capacity];
 
+			for(int i = 0; i < size; i++)
+			{
+				temp[i] = data[i];
+			}
+
+			delete[] data;
+
+			data = temp;
+		}
+		data[size++] = element;
+		
+	};
+};
 
 int main()
 {
 	srand((int)time(0));
-
+	
 	int n = 0;
 	std::cin >> n;
 
@@ -104,5 +153,18 @@ int main()
 	std::cout << binnary_search(arr, n, value) << std::endl;
 
 	delete[] arr;
+
+
+
+	vector v;
+
+	for(int i = 0; i < 100; i++)
+		v.push_back(rand_range());
+	
+	for(int i = 0; i < 100; i++)
+		std::cout << v[i] << "\t";
+
+
+
 	return 0;
 }
