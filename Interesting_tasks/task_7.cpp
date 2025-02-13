@@ -4,9 +4,7 @@ void pairs_of_numbers(int min_num);
 
 int main()
 {
-//	pairs_of_numbers(100);
-
-	find_magical_vector(765);
+	pairs_of_numbers(100);
 
 	return 0;
 }
