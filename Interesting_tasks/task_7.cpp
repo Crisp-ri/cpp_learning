@@ -1,25 +1,10 @@
 #include <iostream>
-#include <string>
 
-
-void all_threes();
-void Pascals_triangle();
-void sieve_of_Eratosthenes();
-void decomposition_of_a_number();
-void palindromes();
-void number_to_text();
 void pairs_of_numbers(int min_num);
-void text_editing();
-void shorthand();
-void find_magical_vector(int N);
-void coordinates_of_the_capital();
-
 
 int main()
 {
-//	pairs_of_numbers(100);
-
-	find_magical_vector(765);
+	pairs_of_numbers(100);
 
 	return 0;
 }
