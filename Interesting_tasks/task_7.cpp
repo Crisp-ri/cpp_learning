@@ -1,6 +1,7 @@
 #include <iostream>
 
 void pairs_of_numbers(int min_num);
+bool is_prime(int n);
 
 int main()
 {
@@ -11,23 +12,25 @@ int main()
 
 void pairs_of_numbers(int n)
 {
-	std::cout << "Pairs of number: " << std::endl;
+	std::cout << "Pairs of prime number: " << std::endl;
+	
 
-	int max_num = n * 2;
-
-	for(int i = 0; i < n; i++)
+	for(int i = n; i < 2 * n - 2; i++)
 	{
-		int min_num = n;
-		for(int j = 0; j < n; j++)
+		if(is_prime(i) && is_prime(i + 2))
 		{
-			if(max_num - min_num == 2)
-			{
-				std::cout << max_num << " " << min_num << std::endl;
-				min_num++;
-			}	
-			else if(max_num - min_num != 2)
-				min_num++;
+			std::cout << i << ", " << i + 2 << std::endl;
 		}
-		max_num--;
 	}
 }
+
+bool is_prime(int n)
+{
+	if(n < 2)
+		return false;
+	for(int i = 2; i * i < n; i++)
+		if(n % i == 0)
+			return false;
+	return true;
+}
+
